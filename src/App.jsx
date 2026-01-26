@@ -1,7 +1,7 @@
 import { Outlet, Route, Routes } from "react-router-dom";
 import Navbar from "./components/NavBar";
 import Home from "./pages/Home";
-import QuestionPage from "./pages/QuestionPage";
+import QuestionPage from "./pages/ProjectPage";
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const QuestionCard = ({ id, title, description }) => {
+const ProjectCard = ({ id, title, description }) => {
   return (
     <Link to={`/questions/${id}`}>
       <div className="min-h-56 cursor-pointer rounded-lg border border-white/10 bg-black p-5 sm:max-w-74 w-96 hover:border-white/30">
@@ -11,4 +11,4 @@ const QuestionCard = ({ id, title, description }) => {
   );
 };
 
-export default QuestionCard;
+export default ProjectCard;

@@ -1,15 +1,16 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { questions } from "../data/questions";
+import { projectMetaData } from "../Projects/projectMetaData.js";
 
-const QuestionPage = () => {
+const ProjectPage = () => {
   const { id } = useParams();
-  const question = questions.find((q) => q.id === id);
+  const project = projectMetaData.find((q) => q.id === id);
   const navigateHome = useNavigate();
 
-  if (!question) {
+  if (!project) {
     return <div className="p-6">Project not found</div>;
   }
 
+  const ProjectComponent = project.component;
   return (
     <div className="mx-auto max-w-7xl p-6">
       <button
@@ -18,13 +19,11 @@ const QuestionPage = () => {
       >
         Home
       </button>
-      <h1 className="text-2xl font-bold mb-4">{question.title}</h1>
-      <p className="text-white/70">{question.description}</p>
 
       {/* Project code / UI goes here */}
-      <h1>this is my Project</h1>
+      <ProjectComponent />
     </div>
   );
 };
 
-export default QuestionPage;
+export default ProjectPage;
