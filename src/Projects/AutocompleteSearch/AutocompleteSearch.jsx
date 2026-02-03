@@ -1,19 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const AutocompleteSearch = () => {
-  const [search, setSearch] = useState("");
-
-  const handalSearch = (searchValue) => {
-    setSearch(searchValue)
-    console.log(search)
-  };
-
   return (
     <div className="mx-auto max-w-xl rounded-lg border border-white/10 bg-black p-6">
       <h1 className="mb-4 text-xl font-semibold text-white">Search Here...</h1>
       <div className="mb-4 flex gap-2">
         <input
-          onChange={(e) => handalSearch(e.target.value)}
+          onChange={(e) => handleSearch(e.target.value)}
           value={search}
           type="text"
           placeholder="Search..."
