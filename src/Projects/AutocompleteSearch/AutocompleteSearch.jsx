@@ -5,8 +5,17 @@ const AutocompleteSearch = () => {
   const [countries, setCountries] = useState([]);
 
   const timerRef = useRef(null);
+  const cacheRef = useRef(new Map());
 
   const callAPI = async (query) => {
+    const normalizedQuery = query.trim().toLowerCase();
+    const cache = cacheRef.current;
+
+    if (cache.has(normalizedQuery)) {
+      console.log("FROM CACHE");
+      setCountries(cache.get(normalizedQuery));
+      return;
+    }
     try {
       const res = await fetch(
         `https://algochurn-server.onrender.com/practice/countries/${query}`
